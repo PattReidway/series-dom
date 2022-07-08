@@ -164,6 +164,8 @@ function displayFavList(){
        html += `<li data-id="${serie.id}">${serie.name}</li>` 
     })
     document.getElementById("favoris").innerHTML = html;
+    displaynumberFav();
+    
 }
 
 // 18/ Créer une fonction permettant de retirer une série de la liste des favoris de par son id.
@@ -183,10 +185,16 @@ function manageFavClick() {
 
 
 // 20/ Créer une fonction qui affiche le nombre de favoris en titre de la liste des favoris.
-
+function displaynumberFav() {
+    document.getElementById("title-fav").innerHTML = favList.length
+}
 
 // 21/ Créer une fonction qui retourne les id des séries par ordre d'année de sortie.
-
+let orderSeries= []
+function getId(){
+    series.sort((a,b) => a.launcherYear - b.launcherYear).forEach(serie=> orderSeries.push(serie.id))
+    return orderSeries
+}
 
 // 22/ Créer une fonction qui affiche les séries dans la page dans l'ordre des ids passés en paramètre.
 
